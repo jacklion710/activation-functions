@@ -108,12 +108,45 @@ To address the dead neuron problem, several variants of the ReLU activation func
     - gradient = 0.01 (or another small constant), when input ≤ 0
 2. Parametric ReLU (PReLU): Similar to Leaky ReLU, PReLU also has a negative slope for negative inputs. However, instead of using a fixed value, the negative slope is treated as a learnable parameter that can be optimized during training. This allows the network to adapt the negative slope based on the specific problem at hand.
 3. Exponential Linear Unit (ELU): ELU is another variant that aims to address the dead neuron problem. For positive inputs, it behaves like the standard ReLU. For negative inputs, it has a negative saturation value that approaches a constant as the input becomes more negative. The ELU function is defined as:
-    - $$ f(x) = \left\{
-\begin{aligned}
-x, & \text{ when } x > 0 \\
-\alpha(\exp(x) - 1), & \text{ when } x \leq 0
-\end{aligned}
-\right. $$
+    - $$ f(x) = \begin{cases} x, & \text{when } x > 0\ \alpha(\exp(x) - 1), & \text{when } x \leq 0 \end{cases} $$
     - where $\alpha$ is a hyperparameter that controls the saturation value for negative inputs.
 
 These variants of the ReLU activation function help mitigate the dead neuron problem by allowing gradients to flow even when the input is negative. By using these alternatives, the network can continue to learn and update the weights of neurons that would otherwise become stuck in an inactive state
+
+## Other notable examples
+
+1. Hard Sigmoid:
+
+    * The hard sigmoid function is an approximation of the sigmoid function that is computationally more efficient.
+    * It is defined as:
+    `codehard_sigmoid(x) = max(0, min(1, (x + 1) / 2))`
+
+    * The hard sigmoid function is a piecewise linear approximation of the sigmoid function, which makes it faster to compute.
+    * It is often used in quantized neural networks or in scenarios where computational efficiency is a priority.
+
+2. Swish:
+
+    * The Swish activation function is a smooth, non-monotonic function that combines the properties of sigmoid and ReLU.
+    * It is defined as:
+    `codeswish(x) = x * sigmoid(x)`
+
+    * Swish has been shown to perform well in deep learning models, especially in combination with batch normalization.
+    * It has a smooth gradient and does not suffer from the vanishing gradient problem like the sigmoid function.
+
+3. Hard Tanh:
+
+    * The hard tanh function is a piecewise linear approximation of the tanh function.
+    * It is defined as:
+    `codehard_tanh(x) = max(-1, min(1, x))`
+
+    * Similar to the hard sigmoid, the hard tanh function is computationally more efficient than the standard tanh function.
+    * It is often used in quantized neural networks or in scenarios where computational efficiency is a priority.
+
+4. Softsign:
+
+    * The softsign activation function is similar to tanh but has a gentler slope and a larger range.
+    * It is defined as:
+    `codesoftsign(x) = x / (1 + |x|)`
+
+    * The softsign function is differentiable everywhere and has a smooth gradient.
+    * It can be seen as a alternative to tanh, particularly in scenarios where a larger output range is desired.
