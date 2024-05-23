@@ -119,7 +119,7 @@ These variants of the ReLU activation function help mitigate the dead neuron pro
 
     * The hard sigmoid function is an approximation of the sigmoid function that is computationally more efficient.
     * It is defined as:
-    `codehard_sigmoid(x) = max(0, min(1, (x + 1) / 2))`
+    `hard_sigmoid(x) = max(0, min(1, (x + 1) / 2))`
 
     * The hard sigmoid function is a piecewise linear approximation of the sigmoid function, which makes it faster to compute.
     * It is often used in quantized neural networks or in scenarios where computational efficiency is a priority.
@@ -128,7 +128,7 @@ These variants of the ReLU activation function help mitigate the dead neuron pro
 
     * The Swish activation function is a smooth, non-monotonic function that combines the properties of sigmoid and ReLU.
     * It is defined as:
-    `codeswish(x) = x * sigmoid(x)`
+    `swish(x) = x * sigmoid(x)`
 
     * Swish has been shown to perform well in deep learning models, especially in combination with batch normalization.
     * It has a smooth gradient and does not suffer from the vanishing gradient problem like the sigmoid function.
@@ -137,7 +137,7 @@ These variants of the ReLU activation function help mitigate the dead neuron pro
 
     * The hard tanh function is a piecewise linear approximation of the tanh function.
     * It is defined as:
-    `codehard_tanh(x) = max(-1, min(1, x))`
+    `hard_tanh(x) = max(-1, min(1, x))`
 
     * Similar to the hard sigmoid, the hard tanh function is computationally more efficient than the standard tanh function.
     * It is often used in quantized neural networks or in scenarios where computational efficiency is a priority.
@@ -146,7 +146,7 @@ These variants of the ReLU activation function help mitigate the dead neuron pro
 
     * The softsign activation function is similar to tanh but has a gentler slope and a larger range.
     * It is defined as:
-    `codesoftsign(x) = x / (1 + |x|)`
+    `softsign(x) = x / (1 + |x|)`
 
     * The softsign function is differentiable everywhere and has a smooth gradient.
     * It can be seen as a alternative to tanh, particularly in scenarios where a larger output range is desired.
