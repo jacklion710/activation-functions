@@ -15,7 +15,7 @@ For this repository I have chosen to use Pytorch but the article provides exampl
 
 Using multiple linear layers is basically the same as using a single layer. In other words you can reqwrite the output layer as a linear combination of the original input variables if you used a linear hidden layer. Basically you could represent the network as a single layer under these circumstances.
 
-![[Single hidden layer neural network with linear layers.png]]
+![Single hidden layer neural network with linear layers](images/Single%20hidden%20layer%20neural%20network%20with%20linear%20layers.png)
 
 To understand this, let's consider a simple example. Suppose you have a neural network with one hidden layer and linear activation functions. The output of the hidden layer can be written as:
 
@@ -49,26 +49,12 @@ $\sigma(x) = \frac{1}{1 + e^{-x}}$
 
 Popular choice because its range (0-1) mimics probability values which is useful for probabilistic outputs.
 
-![[Sigmoid activation function.png]]
+![Sigmoid activation function](images/Sigmoid%20activation%20function.png)
 
-To call the sigmoid function with keras:
-
-```python
-import tensorflow as tf from tensorflow.keras.activations import sigmoid
-
-input_array = tf.constant([-1, 0, 1], dtype=tf.float32)
-print (sigmoid(input_array))
-```
-
-The output:
-
-```python
-tf.Tensor([0.26894143 0.5        0.7310586 ], shape=(3,), dtype=float32)
-```
 
 The derivation of an activation function can be useful to analyze as well due to back propagation and the chain rule which affects the training process.
 
-![[Sigmoid activation function (blue) and gradient (orange).png]]
+![Sigmoid activation function (blue) and gradient (orange)](images/Sigmoid%20activation%20function%20(blue)%20and%20gradient%20(orange).png)
 
 The gradient <i>f'(x)</x> is always between 0-0.25. As the x tends towards positive or negative infinity, the gradient tends to 0. This has the potential to cause the vanishing gradient problem meaning the gradient becomes too small to initiate the correction.
 
@@ -82,11 +68,11 @@ The hyperbolic tangent (tanh) activation function is defined as: $\tanh(x) = \fr
 
 Similar to sigmoid, it has a larger range of output values compared to the sigmoid function and a larger maximum gradient. Also known as tanh, it is a hyperbolic analog to the normal tangent function for circles.
 
-![[Tanh activation function.png]]
+![Tanh activation function](images/Tanh%20activation%20function.png)
 
 Its gradient:
 
-![[Tanh activation function (blue) and gradient (orange).png]]
+![Tanh activation function (blue) and gradient (orange)](images/Tanh%20activation%20function%20(blue)%20and%20gradient%20(orange).png)
 
 The gradient has a max value of 1, compared to sigmoid where the largest gradient is 0.25. This relieves the vanishing gradient problem in instances where tanh is used. Tanh also has a saturation region where the value of the gradient tends toward 0 as the magnitude of the input x gets larger.
 
@@ -99,33 +85,17 @@ Some key properties of the tanh function:
 
 Despite the advantages of the tanh function over the sigmoid function, it is still susceptible to the vanishing gradient problem. This has led to the development of other activation functions, such as the Rectified Linear Unit (ReLU) and its variants, which have become more popular in modern deep learning architectures.
 
-In TensorFlow:
-
-```python
-import tensorflow as tf
-from tensorflow.keras.activations import tanh
-
-input_array = tf.constant([-1, 0, 1], dtype=tf.float32)
-print (tanh(input_array))
-```
-
-The output:
-
-```python
-tf.Tensor([-0.7615942  0.         0.7615942], shape=(3,), dtype=float32)
-```
-
 ### Rectified Linear Unit (ReLU)
 
 $x=y$
 
 ReLU is a simple max (0,x) function which can also be thought of as a piecewise function with all inputs less than 0 mapping to 0 and all inputs greater than or equal to 0 mapping back to themselves (identity function).
 
-![[ReLU activation function.png]]
+![ReLU activation function](images/ReLU%20activation%20function.png)
 
 The Gradient:
 
-![[ReLU activation function (blue line) and gradient (orange).png]]
+![ReLU activation function (blue line) and gradient (orange)](images/ReLU%20activation%20function%20(blue%20line)%20and%20gradient%20(orange).png)
 
 Notice how the gradient of ReLU is 1 whenever the input is positive, which helps address the vanishing gradient problem. However, whenever the input is negative, the gradient is 0. This causes another problem, the dead neuron/dying ReLU problem which is an issue if a neuron is persistently inactivated.
 
