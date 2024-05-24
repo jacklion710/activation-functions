@@ -4,7 +4,9 @@ Study on the topic of activation functions in AI. Focusing on practical examples
 
 I am paraphrasing the concepts from this [Machine Learning Mastery article](https://machinelearningmastery.com/using-activation-functions-in-neural-networks/#:~:text=Activation%20functions%20play%20an%20integral,a%20simple%20linear%20regression%20model.) (with a few small corrections added).
 
-For this repository I have chosen to use Pytorch but the article provides examples in Tensorflow.
+## Environment Setup
+
+For this project I chose to use Pytorch but the article provides examples in TensorFlow/Keras. For details on setting up your environment for Pytorch you can follow my guide outlined [here](https://github.com/jacklion710/torchaudio-basics)
 
 * Why are nonlinearities important in a neural network?
 * How do different activation functions contribute to the vanishing gradient problem?
