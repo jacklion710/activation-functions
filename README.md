@@ -110,7 +110,7 @@ To address the dead neuron problem, several variants of the ReLU activation func
     - gradient = 0.01 (or another small constant), when input ≤ 0
 2. Parametric ReLU (PReLU): Similar to Leaky ReLU, PReLU also has a negative slope for negative inputs. However, instead of using a fixed value, the negative slope is treated as a learnable parameter that can be optimized during training. This allows the network to adapt the negative slope based on the specific problem at hand.
 3. Exponential Linear Unit (ELU): ELU is another variant that aims to address the dead neuron problem. For positive inputs, it behaves like the standard ReLU. For negative inputs, it has a negative saturation value that approaches a constant as the input becomes more negative. The ELU function is defined as:
-    - $$ f(x) = \begin{cases} x, & \text{when } x > 0\ \alpha(\exp(x) - 1), & \text{when } x \leq 0 \end{cases} $$
+    - $ f(x) = \begin{cases} x, & \text{when } x > 0\ \alpha(\exp(x) - 1), & \text{when } x \leq 0 \end{cases} $
     - where $\alpha$ is a hyperparameter that controls the saturation value for negative inputs.
 
 These variants of the ReLU activation function help mitigate the dead neuron problem by allowing gradients to flow even when the input is negative. By using these alternatives, the network can continue to learn and update the weights of neurons that would otherwise become stuck in an inactive state
